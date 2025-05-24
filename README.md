@@ -25,7 +25,6 @@ Bu proje, el yazısı rakamları tanımak için üç farklı derin öğrenme mod
   - Doğrulama: %97.45
   - Test: %97.25
 
-![YSA Model 1 Mimarisi](ss/mimari.png)
 
 ### 2. YSA Model 2 (Keras)
 - 5 katman (Input + 3 Dense + 1 Output)
@@ -37,7 +36,7 @@ Bu proje, el yazısı rakamları tanımak için üç farklı derin öğrenme mod
   - Doğrulama: %98.30
   - Test: %98.14
 
-![YSA Model 2 Mimarisi](ss/mimari2.png)
+
 
 ### 3. CNN Model (PyTorch)
 - 6 katman (2 Conv + 2 Pool + 1 Dense + 1 Output)
@@ -96,12 +95,13 @@ python manage.py runserver
 4. Üç modelin tahminlerini görüntüleyin
 
 ![Örnek Kullanım](ss/cizim.png)
+![Örnek Kullanım](ss/sonuc.png)
 
 ## 📊 Sonuçlar
 
-Modellerin performans karşılaştırması:
+Modellerin mimari ve performans karşılaştırması:
 
-![Performans Karşılaştırması](ss/sonuc.png)
+![Performans Karşılaştırması](ss/mimari.png)
 
 ## 🤝 Katkıda Bulunma
 
@@ -115,8 +115,3 @@ Modellerin performans karşılaştırması:
 
 Bu proje MIT lisansı altında lisanslanmıştır. Daha fazla bilgi için `LICENSE` dosyasına bakın.
 
-## 📧 İletişim
-
-Proje Sahibi - [@kullaniciadi](https://github.com/kullaniciadi)
-
-Proje Linki: [https://github.com/kullaniciadi/annDigitDec](https://github.com/kullaniciadi/annDigitDec) 
