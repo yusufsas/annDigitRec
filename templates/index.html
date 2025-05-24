@@ -13,6 +13,84 @@
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
       background-color: black;
     }
+
+    .model-architecture {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding: 15px;
+    }
+
+    .layer {
+      background: #f8f9fa;
+      border-radius: 8px;
+      padding: 15px;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .layer:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .layer-title {
+      font-size: 1rem;
+      font-weight: bold;
+      margin-bottom: 8px;
+      color: #495057;
+    }
+
+    .layer-details {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-bottom: 10px;
+    }
+
+    .neurons {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .neuron {
+      width: 12px;
+      height: 12px;
+      background: #0d6efd;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+    }
+
+    .neuron:hover {
+      transform: scale(1.2);
+      background: #0a58ca;
+    }
+
+    .model-summary {
+      background: #f8f9fa;
+      border-radius: 8px;
+      padding: 15px;
+      margin-top: 20px;
+    }
+
+    .model-summary ul li {
+      margin-bottom: 5px;
+      font-size: 0.9rem;
+    }
+
+    .input-layer { background: #e3f2fd; }
+    .conv-layer { background: #fff3e0; }
+    .pool-layer { background: #e8f5e9; }
+    .hidden-layer { background: #f3e5f5; }
+    .dense-layer { background: #fce4ec; }
+    .output-layer { background: #e8eaf6; }
+
+    .badge {
+      font-size: 0.75rem;
+      padding: 5px 8px;
+    }
   </style>
 </head>
 <body class="bg-light">
@@ -53,6 +131,195 @@
             <p class="mb-2"><strong>CNN Model Tahmini:</strong> <span class="text-dark">{{ pred_cnn }}</span></p>
             <p class="mb-2"><strong>YSA Model 1 Tahmini:</strong> <span class="text-dark">{{ pred_ysa1 }}</span></p>
             <p class="mb-0"><strong>YSA Model 2 Tahmini:</strong> <span class="text-dark">{{ pred_ysa2 }}</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Model Mimarileri Bölümü -->
+    <div class="row justify-content-center mt-5">
+      <div class="col-12">
+        <h3 class="text-center text-primary mb-4">Model Mimarileri ve Detayları</h3>
+        <div class="row">
+          <!-- YSA1 Model -->
+          <div class="col-md-4">
+            <div class="card shadow-sm h-100">
+              <div class="card-body">
+                <h5 class="card-title text-center mb-3">YSA Model 1 (Keras)</h5>
+                <div class="model-architecture">
+                  <div class="layer input-layer">
+                    <div class="layer-title">Girdi Katmanı</div>
+                    <div class="layer-details">
+                      <span class="badge bg-info">Flatten</span>
+                      <span class="badge bg-info">784 (28x28)</span>
+                    </div>
+                  </div>
+                  <div class="layer hidden-layer">
+                    <div class="layer-title">Gizli Katman 1</div>
+                    <div class="layer-details">
+                      <span class="badge bg-info">Dense</span>
+                      <span class="badge bg-info">128 birim</span>
+                      <span class="badge bg-success">ReLU</span>
+                    </div>
+                  </div>
+                  <div class="layer hidden-layer">
+                    <div class="layer-title">Gizli Katman 2</div>
+                    <div class="layer-details">
+                      <span class="badge bg-info">Dense</span>
+                      <span class="badge bg-info">128 birim</span>
+                      <span class="badge bg-success">ReLU</span>
+                    </div>
+                  </div>
+                  <div class="layer output-layer">
+                    <div class="layer-title">Çıktı Katmanı</div>
+                    <div class="layer-details">
+                      <span class="badge bg-info">Dense</span>
+                      <span class="badge bg-info">10 birim</span>
+                      <span class="badge bg-success">Softmax</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="model-summary mt-3">
+                  <h6 class="text-primary">Model Özeti</h6>
+                  <ul class="list-unstyled">
+                    <li><strong>Parametre Sayısı:</strong> 118,282</li>
+                    <li><strong>Epoch:</strong> 10</li>
+                    <li><strong>Batch Size:</strong> 100</li>
+                    <li><strong>Eğitim Accuracy:</strong> %99.54</li>
+                    <li><strong>Validation Accuracy:</strong> %97.45</li>
+                    <li><strong>Test Accuracy:</strong> %97.25</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- YSA2 Model -->
+          <div class="col-md-4">
+            <div class="card shadow-sm h-100">
+              <div class="card-body">
+                <h5 class="card-title text-center mb-3">YSA Model 2 (Keras)</h5>
+                <div class="model-architecture">
+                  <div class="layer input-layer">
+                    <div class="layer-title">Girdi Katmanı</div>
+                    <div class="layer-details">
+                      <span class="badge bg-info">784 (28x28)</span>
+                    </div>
+                  </div>
+                  <div class="layer hidden-layer">
+                    <div class="layer-title">Gizli Katman 1</div>
+                    <div class="layer-details">
+                      <span class="badge bg-info">Dense</span>
+                      <span class="badge bg-info">512 birim</span>
+                      <span class="badge bg-success">ReLU</span>
+                      <span class="badge bg-warning">Dropout: 0.3</span>
+                    </div>
+                  </div>
+                  <div class="layer hidden-layer">
+                    <div class="layer-title">Gizli Katman 2</div>
+                    <div class="layer-details">
+                      <span class="badge bg-info">Dense</span>
+                      <span class="badge bg-info">256 birim</span>
+                      <span class="badge bg-success">ReLU</span>
+                      <span class="badge bg-warning">Dropout: 0.3</span>
+                    </div>
+                  </div>
+                  <div class="layer hidden-layer">
+                    <div class="layer-title">Gizli Katman 3</div>
+                    <div class="layer-details">
+                      <span class="badge bg-info">Dense</span>
+                      <span class="badge bg-info">128 birim</span>
+                      <span class="badge bg-success">ReLU</span>
+                      <span class="badge bg-warning">Dropout: 0.3</span>
+                    </div>
+                  </div>
+                  <div class="layer output-layer">
+                    <div class="layer-title">Çıktı Katmanı</div>
+                    <div class="layer-details">
+                      <span class="badge bg-info">Dense</span>
+                      <span class="badge bg-info">10 birim</span>
+                      <span class="badge bg-success">Softmax</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="model-summary mt-3">
+                  <h6 class="text-primary">Model Özeti</h6>
+                  <ul class="list-unstyled">
+                    <li><strong>Optimizer:</strong> Adam</li>
+                    <li><strong>Loss:</strong> Categorical Crossentropy</li>
+                    <li><strong>Epoch:</strong> 10</li>
+                    <li><strong>Batch Size:</strong> 128</li>
+                    <li><strong>Eğitim Accuracy:</strong> %98.59</li>
+                    <li><strong>Validation Accuracy:</strong> %98.30</li>
+                    <li><strong>Test Accuracy:</strong> %98.14</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CNN Model -->
+          <div class="col-md-4">
+            <div class="card shadow-sm h-100">
+              <div class="card-body">
+                <h5 class="card-title text-center mb-3">CNN Model (PyTorch)</h5>
+                <div class="model-architecture">
+                  <div class="layer conv-layer">
+                    <div class="layer-title">Konvolüsyon 1</div>
+                    <div class="layer-details">
+                      <span class="badge bg-info">Giriş: 1</span>
+                      <span class="badge bg-info">Çıkış: 16</span>
+                      <span class="badge bg-success">ReLU</span>
+                    </div>
+                  </div>
+                  <div class="layer pool-layer">
+                    <div class="layer-title">Max Pooling 1</div>
+                    <div class="layer-details">
+                      <span class="badge bg-info">2x2</span>
+                    </div>
+                  </div>
+                  <div class="layer conv-layer">
+                    <div class="layer-title">Konvolüsyon 2</div>
+                    <div class="layer-details">
+                      <span class="badge bg-info">Giriş: 16</span>
+                      <span class="badge bg-info">Çıkış: 32</span>
+                      <span class="badge bg-success">ReLU</span>
+                    </div>
+                  </div>
+                  <div class="layer pool-layer">
+                    <div class="layer-title">Max Pooling 2</div>
+                    <div class="layer-details">
+                      <span class="badge bg-info">2x2</span>
+                    </div>
+                  </div>
+                  <div class="layer dense-layer">
+                    <div class="layer-title">Yoğun Katman 1</div>
+                    <div class="layer-details">
+                      <span class="badge bg-info">1568 → 128</span>
+                      <span class="badge bg-success">ReLU</span>
+                    </div>
+                  </div>
+                  <div class="layer output-layer">
+                    <div class="layer-title">Çıktı Katmanı</div>
+                    <div class="layer-details">
+                      <span class="badge bg-info">128 → 10</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="model-summary mt-3">
+                  <h6 class="text-primary">Model Özeti</h6>
+                  <ul class="list-unstyled">
+                    <li><strong>Optimizer:</strong> Adam (lr=0.001)</li>
+                    <li><strong>Loss:</strong> CrossEntropyLoss</li>
+                    <li><strong>Epoch:</strong> 5</li>
+                    <li><strong>Batch Size:</strong> 64</li>
+                    <li><strong>Eğitim Accuracy:</strong> %99.35</li>
+                    <li><strong>Validation Accuracy:</strong> %98.78</li>
+                    <li><strong>Test Accuracy:</strong> %98.94</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
