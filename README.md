@@ -13,6 +13,16 @@ Bu proje, el yazısı rakamları tanımak için üç farklı derin öğrenme mod
 - Model mimarilerinin görselleştirilmesi
 - Performans metriklerinin gösterimi
 
+## 🎯 Kullanım
+
+1. Web tarayıcınızda `http://localhost:8000` adresine gidin
+2. Canvas üzerinde beyaz renkle çizim yapın veya bir görsel yükleyin
+3. "Çizimi Gönder" veya "Yüklenen Görseli Gönder" butonuna tıklayın
+4. Üç modelin tahminlerini görüntüleyin
+
+![Örnek Kullanım](ss/cizim.png)
+![Örnek Kullanım](ss/sonuc.png)
+
 ## 🧠 Model Mimarileri
 
 ### 1. YSA Model 1 (Keras)
@@ -47,6 +57,13 @@ Bu proje, el yazısı rakamları tanımak için üç farklı derin öğrenme mod
   - Eğitim: %99.35
   - Doğrulama: %98.78
   - Test: %98.94
+
+## 📊 Sonuçlar
+
+Modellerin mimari ve performans karşılaştırması:
+
+![Performans Karşılaştırması](ss/mimari.png)
+
 
 ## 🛠️ Teknolojiler
 
@@ -86,30 +103,6 @@ pip install -r requirements.txt
 ```bash
 python manage.py runserver
 ```
-
-## 🎯 Kullanım
-
-1. Web tarayıcınızda `http://localhost:8000` adresine gidin
-2. Canvas üzerinde beyaz renkle çizim yapın veya bir görsel yükleyin
-3. "Çizimi Gönder" veya "Yüklenen Görseli Gönder" butonuna tıklayın
-4. Üç modelin tahminlerini görüntüleyin
-
-![Örnek Kullanım](ss/cizim.png)
-![Örnek Kullanım](ss/sonuc.png)
-
-## 📊 Sonuçlar
-
-Modellerin mimari ve performans karşılaştırması:
-
-![Performans Karşılaştırması](ss/mimari.png)
-
-## 🤝 Katkıda Bulunma
-
-1. Bu depoyu fork edin
-2. Yeni bir branch oluşturun (`git checkout -b feature/yeniOzellik`)
-3. Değişikliklerinizi commit edin (`git commit -am 'Yeni özellik: Açıklama'`)
-4. Branch'inizi push edin (`git push origin feature/yeniOzellik`)
-5. Bir Pull Request oluşturun
 
 ## 📝 Lisans
 
