@@ -103,8 +103,3 @@ pip install -r requirements.txt
 ```bash
 python manage.py runserver
 ```
-
-## 📝 Lisans
-
-Bu proje MIT lisansı altında lisanslanmıştır. Daha fazla bilgi için `LICENSE` dosyasına bakın.
-
